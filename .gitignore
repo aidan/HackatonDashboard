@@ -1,0 +1,4 @@
+*.pyc
+.idea
+venv
+sysboard/settings.py

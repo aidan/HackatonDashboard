@@ -1,0 +1,56 @@
+details:
+    page_title: STXNext - Wrocław
+layout:
+    - row_1_of_3:
+        - col_1_of_4:
+            - tile_template: just_label
+              tile_id: WANA
+              title: WAN - Connecta
+        - col_1_of_4:
+            - tile_template: just_label
+              tile_id: TunP
+              title: Tunnel - Poznan
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: TunPPingChart
+              title: Tunnel - Poznan - Latency
+        - col_1_of_4:
+            - tile_template: pie_chart
+              tile_id: PieVM1
+              title: CPU Usage - VM-Alpha
+
+    - row_1_of_3:
+        - col_1_of_4:
+            - tile_template: just_label
+              tile_id: WANB
+              title: WAN - Netia
+        - col_1_of_4:
+            - tile_template: just_label
+              tile_id: TunH
+              title: Tunnel - Hogarth
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: TunHPingChart
+              title: Tunnel - Hogarth - Latency
+        - col_1_of_4:
+            - tile_template: pie_chart
+              tile_id: EmployeesPie
+              title: Workstations online
+
+    - row_1_of_3:
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: WAN1InChart
+              title: WAN - Connecta - In
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: WAN1OutChart
+              title: WAN - Connecta - Out
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: WAN2InChart
+              title: WAN - Netia - In
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: WAN2OutChart
+              title: WAN - Netia - Out
