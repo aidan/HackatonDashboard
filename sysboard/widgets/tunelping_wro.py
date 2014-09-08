@@ -11,12 +11,13 @@ class tunelping_wro(threading.Thread):
         while True:
             tunP = w.get_ping('10.93.1.10', '5')
             tunH = w.get_ping('10.9.15.201', '5')
-            values = {'TunPPing': tunP[1], 'TunHPing': tunH[1]}
+            values = {'TunPPing': 0, 'TunHPing': 0}
 
             if tunP[0]:
                 f.push_data('just_label', 'TunP', {'just-label': 'UP'})
                 f.push_settings('TunP', {'just-label-color': 'green', 'fading_background': 'false'})
                 cfg.redis.zadd('sysboard:TunPPing', [strftime('%M:%S'), int(tunP[1])], rid)
+                values['TunPPing'] = tunP[1]
             else:
                 f.push_data('just_label', 'TunP', {'just-label': 'DOWN'})
                 f.push_settings('TunP', {'just-label-color': 'red', 'fading_background': 'false'})
@@ -25,6 +26,7 @@ class tunelping_wro(threading.Thread):
                 f.push_data('just_label', 'TunH', {'just-label': 'UP'})
                 f.push_settings('TunH', {'just-label-color': 'green', 'fading_background': 'false'})
                 cfg.redis.zadd('sysboard:TunHPing', [strftime('%M:%S'), int(tunH[1])], rid)
+                values['TunHPing'] = tunH[1]
             else:
                 f.push_data('just_label', 'TunH', {'just-label': 'DOWN'})
                 f.push_settings('TunH', {'just-label-color': 'red', 'fading_background': 'false'})
