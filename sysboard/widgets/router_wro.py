@@ -54,3 +54,8 @@ class router_wro(f.widget):
                 f.push_data('line_chart', graph + 'Chart',
                             {'subtitle': f.clean_transfer(output[graph + 'Delta'], False), 'description': '',
                             'series_list': [graph_data]})
+        else:
+            f.push_data('just_label', 'WANA', {'just-label': 'DOWN'})
+            f.push_settings('WANA', {'just-label-color': 'red', 'fading_background': 'false'})
+            f.push_data('just_label', 'WANB', {'just-label': 'DOWN'})
+            f.push_settings('WANB', {'just-label-color': 'red', 'fading_background': 'false'})

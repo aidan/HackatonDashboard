@@ -17,5 +17,8 @@ class vmalpha_wro(f.widget):
                     zadar += output[vms]['cputimedelta']
                 else:
                     other += output[vms]['cputimedelta']
-            f.push_data('pie_chart', 'PieVM1', {'title': '',
-                                                'pie_data': [['Zonza', zonza], ['Zadar', zadar], ['Other', other]]})
+            f.push_data('pie_chart', 'PieVM1', {'title': '', 'pie_data': [['Zonza', zonza],
+                                                                          ['Zadar', zadar],
+                                                                          ['Other', other]]})
+        else:
+            f.push_data('pie_chart', 'PieVM1', {'title': '', 'pie_data': []})
