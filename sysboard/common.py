@@ -1,7 +1,34 @@
 from __future__ import division
 import requests
 import json
+import threading
 import sysboard.settings as cfg
+from time import sleep
+
+
+class widget(threading.Thread):
+    def __init__(self):
+        super(widget, self).__init__()
+        self.alive = True
+        self.timer = 0
+        self.refresh = cfg.refresh_time
+
+    def shutdown(self):
+        self.alive = False
+
+    def run(self):
+        while self.alive:
+            if self.timer >= self.refresh:
+                self.timer = 0
+                self.payload()
+                print('TICK: ' + self.__class__.__name__)
+            else:
+                self.timer += 1
+                sleep(1)
+        print('SHUTDOWN: ' + self.__class__.__name__)
+
+    def payload(self):
+        pass
 
 
 def push_data(tile, key, data):
