@@ -56,6 +56,8 @@ def clean_time(raw):
 
 
 def clean_transfer(raw, redis=True):
+    if raw < 0:
+        raw = 0
     if redis:
         return int((raw*8)/1000/cfg.refresh_time)
     else:
