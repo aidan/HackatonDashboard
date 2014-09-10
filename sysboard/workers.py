@@ -17,14 +17,7 @@ def get_ping(hostname, count='1'):
 def get_snmp():
     errorindication, _, _, varbinds = cfg.snmp.getCmd(
         cmdgen.CommunityData(cfg.router_pass),
-        cmdgen.UdpTransportTarget((cfg.router_ip, 161)),
-        '1.3.6.1.2.1.1.3.0',
-        '1.3.6.1.2.1.2.2.1.8.4',
-        '1.3.6.1.2.1.2.2.1.8.5',
-        '1.3.6.1.2.1.2.2.1.10.4',
-        '1.3.6.1.2.1.2.2.1.10.5',
-        '1.3.6.1.2.1.2.2.1.16.4',
-        '1.3.6.1.2.1.2.2.1.16.5')
+        cmdgen.UdpTransportTarget((cfg.router_ip, 161)), *cfg.snmp.field)
     if errorindication:
         return False
     else:
