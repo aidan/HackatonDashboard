@@ -2,22 +2,18 @@ details:
     page_title: STXNext - Wrocław
 layout:
     - row_1_of_3:
-        - col_1_of_4:
+        - col_1_of_3:
             - tile_template: just_label
               tile_id: WANA
               title: WAN - Connecta
-        - col_1_of_4:
+        - col_1_of_3:
             - tile_template: just_label
               tile_id: TunP
               title: Tunnel - Poznan
-        - col_1_of_4:
+        - col_1_of_3:
             - tile_template: line_chart
               tile_id: TunPPingChart
               title: Tunnel - Poznan - Latency
-        - col_1_of_4:
-            - tile_template: pie_chart
-              tile_id: PieVM1
-              title: CPU Usage - VM-Alpha
 
     - row_1_of_3:
         - col_1_of_4:
@@ -38,11 +34,19 @@ layout:
               title: Workstations online
 
     - row_1_of_3:
-        - col_1_of_2:
+        - col_1_of_4:
             - tile_template: line_chart
               tile_id: WAN1Chart
               title: WAN - Connecta
-        - col_1_of_2:
+        - col_1_of_4:
             - tile_template: line_chart
               tile_id: WAN2Chart
               title: WAN - NETIA
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: DecimaLoadChart
+              title: Load - Decima
+        - col_1_of_4:
+            - tile_template: line_chart
+              tile_id: NonaLoadChart
+              title: Load - Nona

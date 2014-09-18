@@ -62,3 +62,9 @@ def clean_transfer(raw, redis=True):
         return int((raw*8)/1000/cfg.refresh_time)
     else:
         return '{0:.2f}'.format((raw*8)/1000/1000/cfg.refresh_time) + ' Mb/s'
+
+
+def clean_load(raw):
+    if raw < 0:
+        raw = 0
+    return '{0:.2f}'.format(raw/100)

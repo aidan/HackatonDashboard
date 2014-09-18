@@ -14,19 +14,19 @@ def get_ping(hostname, count='1'):
         return [False]
 
 
-def get_snmp():
-    errorindication, _, _, varbinds = cfg.snmp.getCmd(
-        cmdgen.CommunityData(cfg.router_pass),
-        cmdgen.UdpTransportTarget((cfg.router_ip, 161)), *cfg.snmp.field)
+def get_snmp(host, community, snmp):
+    errorindication, _, _, varbinds = snmp.getCmd(
+        cmdgen.CommunityData(community),
+        cmdgen.UdpTransportTarget((host, 161)), *snmp.field)
     if errorindication:
         return False
     else:
         out = {}
         for name, val in varbinds:
             if val > -1:
-                out[cfg.snmp.field_index[str(name)]] = int(val.prettyPrint())
+                out[snmp.field_index[str(name)]] = int(val.prettyPrint().replace('.', ''))
             else:
-                out[cfg.snmp.field_index[str(name)]] = 0
+                out[snmp.field_index[str(name)]] = 0
         return out
 
 

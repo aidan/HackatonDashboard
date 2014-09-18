@@ -6,7 +6,7 @@ from time import strftime
 
 class router_wro(f.widget):
     def payload(self):
-        output = w.get_snmp()
+        output = w.get_snmp(cfg.router_ip, cfg.router_pass, cfg.snmp_r)
         if output:
             if output['WAN1Status'] == 1:
                 f.push_data('just_label', 'WANA', {'just-label': 'UP'})
