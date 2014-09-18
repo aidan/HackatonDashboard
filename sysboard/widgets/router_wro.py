@@ -47,13 +47,17 @@ class router_wro(f.widget):
             cfg.redis.zremrangebyrank('sysboard:WAN2InDelta', 0, -11)
             cfg.redis.zremrangebyrank('sysboard:WAN2OutDelta', 0, -11)
 
-            for graph in ['WAN1In', 'WAN1Out', 'WAN2In', 'WAN2Out']:
-                graph_data = []
-                for record in cfg.redis.zrange('sysboard:' + graph + 'Delta', 0, -1):
-                    graph_data.append(eval(record))
-                f.push_data('line_chart', graph + 'Chart',
-                            {'subtitle': f.clean_transfer(output[graph + 'Delta'], False), 'description': '',
-                            'series_list': [graph_data]})
+            for wanid in ['1', '2']:
+                graph_data = [[], []]
+                invalue = f.clean_transfer(output['WAN' + wanid + 'InDelta'], False)
+                outvalue = f.clean_transfer(output['WAN' + wanid + 'OutDelta'], False)
+                for record in cfg.redis.zrange('sysboard:WAN' + wanid + 'InDelta', 0, -1):
+                    graph_data[0].append(eval(record))
+                for record in cfg.redis.zrange('sysboard:WAN' + wanid + 'OutDelta', 0, -1):
+                    graph_data[1].append(eval(record))
+                f.push_data('line_chart', 'WAN' + wanid + 'Chart',
+                            {'subtitle': 'IN: ' + invalue + '     OUT: ' + outvalue, 'description': '',
+                            'series_list': graph_data})
         else:
             f.push_data('just_label', 'WANA', {'just-label': 'DOWN'})
             f.push_settings('WANA', {'just-label-color': 'red', 'fading_background': 'false'})
