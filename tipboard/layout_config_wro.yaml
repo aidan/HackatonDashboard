@@ -2,18 +2,22 @@ details:
     page_title: STXNext - Wrocław
 layout:
     - row_1_of_3:
-        - col_1_of_3:
+        - col_1_of_4:
             - tile_template: just_label
               tile_id: WANA
               title: WAN - Connecta
-        - col_1_of_3:
+        - col_1_of_4:
             - tile_template: just_label
               tile_id: TunP
               title: Tunnel - Poznan
-        - col_1_of_3:
+        - col_1_of_4:
             - tile_template: line_chart
               tile_id: TunPPingChart
               title: Tunnel - Poznan - Latency
+        - col_1_of_4:
+            - tile_template: fancy_listing_3
+              tile_id: TunO
+              title: Tunnel - Other
 
     - row_1_of_3:
         - col_1_of_4:
