@@ -17,9 +17,6 @@ class router_wro(f.widget):
             if output['WAN2Status'] == 1:
                 f.push_data('just_label', 'WANB', {'just-label': 'UP'})
                 f.push_settings('WANB', {'just-label-color': 'green', 'fading_background': 'false'})
-            elif output['WAN1Status'] == 1:
-                f.push_data('just_label', 'WANB', {'just-label': 'STANDBY'})
-                f.push_settings('WANB', {'just-label-color': 'orange', 'fading_background': 'false'})
             else:
                 f.push_data('just_label', 'WANB', {'just-label': 'DOWN'})
                 f.push_settings('WANB', {'just-label-color': 'red', 'fading_background': 'false'})

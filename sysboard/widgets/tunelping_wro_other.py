@@ -4,9 +4,9 @@ import sysboard.common as f
 
 class tunelping_wro_other(f.widget):
     def payload(self):
-        tunW1 = w.get_ping('16.193.144.1', '1')
-        tunW2 = w.get_ping('10.92.2.1', '1')
-        tunOVPN = w.get_ping('10.93.3.1', '1')
+        tunW1 = w.get_ping('16.193.144.1', '5')
+        tunW2 = w.get_ping('10.92.2.1', '5')
+        tunOVPN = w.get_ping('10.93.3.1', '5')
 
         if tunW1[0]:
             tunW1 = {'label': 'UP', 'text': 'Warszawa-1', 'description': ''}
